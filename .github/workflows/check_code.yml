@@ -9,9 +9,9 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '5.0.101'
+          dotnet-version: '3.1.x'
       - name: Install ReSharper Command Line Tool
         run: dotnet tool install -g JetBrains.ReSharper.GlobalTools
       - name: Run Inspection
-        run: jb inspect RegexTester.sln --dotnetcoresdk=5.0.102
+        run: jb inspect RegexTester.sln
   
