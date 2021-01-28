@@ -13,5 +13,7 @@ jobs:
       - name: Install ReSharper Command Line Tool
         run: dotnet tool install -g JetBrains.ReSharper.GlobalTools
       - name: Run Inspection
-        run: jb inspectcode RegexTester.sln
+        run: jb inspectcode RegexTester.sln -f=Text -o=result.txt
+      - name: Output Inspection Result
+        run: cat result.txt >&2
   
