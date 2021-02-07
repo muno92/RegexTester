@@ -1,6 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# 
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegexTester", "RegexTester\RegexTester.csproj", "{AABC20B8-01DC-404E-874C-42DDF03F6589}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegexTesterTest", "RegexTesterTest\RegexTesterTest.csproj", "{9175FF58-965A-4864-9708-13D19D816641}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +15,9 @@ Global
 		{AABC20B8-01DC-404E-874C-42DDF03F6589}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AABC20B8-01DC-404E-874C-42DDF03F6589}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AABC20B8-01DC-404E-874C-42DDF03F6589}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9175FF58-965A-4864-9708-13D19D816641}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9175FF58-965A-4864-9708-13D19D816641}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9175FF58-965A-4864-9708-13D19D816641}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9175FF58-965A-4864-9708-13D19D816641}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
