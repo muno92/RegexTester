@@ -13,5 +13,5 @@ jobs:
       - name: Restore
         run: dotnet restore RegexTester
       - name: Build
-        run: dotnet build --no-restore RegexTester
+        run: dotnet build --no-restore -warnAsError RegexTester
   
