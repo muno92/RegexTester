@@ -1,7 +1,41 @@
 ﻿@page "/"
+@using System.Text.RegularExpressions
 
-<h1>Hello, world!</h1>
+<h1>Regex Tester</h1>
 
-Welcome to your new app.
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <div class="row">
+                <label for="pattern">Pattern</label>
+                <input type="text" name="pattern" id="pattern">
+            </div>
+            <div class="row">
+                <label for="input">Input</label>
+                <textarea name="input" id="input" cols="30" rows="10"></textarea>
+            </div>
+            <div class="row">
+                <button class="btn btn-primary">Run</button>
+            </div>
+        </div>
+        <div class="col-sm">
+            <ul class="list-group">
+                @foreach (var field in typeof(RegexOptions).GetFields())
+                {
+                    @if (field.Name == RegexOptions.None.ToString() || field.Name == "value__")
+                    {
+                        continue;
+                    }
+                    <li class="list-group-item">
+                        <label>
+                            <input type="checkbox" name="@field.Name" value="">
+                            @field.Name
+                        </label>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
 
 <SurveyPrompt Title="How is Blazor working for you?"/>
