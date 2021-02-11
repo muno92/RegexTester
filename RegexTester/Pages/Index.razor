@@ -8,14 +8,14 @@
         <div class="col-sm">
             <div class="row">
                 <label for="pattern">Pattern</label>
-                <input type="text" name="pattern" id="pattern">
+                <input type="text" name="pattern" id="pattern" @bind="_pattern">
             </div>
             <div class="row">
                 <label for="input">Input</label>
-                <textarea name="input" id="input" cols="30" rows="10"></textarea>
+                <textarea name="input" id="input" cols="30" rows="10" @bind="_input"></textarea>
             </div>
             <div class="row">
-                <button class="btn btn-primary">Run</button>
+                <button class="btn btn-primary" @onclick="Run">Run</button>
             </div>
         </div>
         <div class="col-sm">
@@ -36,6 +36,27 @@
             </ul>
         </div>
     </div>
+    @if (_matches != null)
+    {
+        <ul>
+            @foreach (Match match in _matches)
+            {
+                @match.Groups[0].Value
+                <MatchWord Match="match" />
+            }
+        </ul>
+    }
 </div>
 
-<SurveyPrompt Title="How is Blazor working for you?"/>
+@code {
+    private string _pattern;
+    
+    private string _input;
+
+    private MatchCollection _matches;
+
+    private void Run()
+    {
+        _matches = Regex.Matches(_input, _pattern);
+    }
+}
