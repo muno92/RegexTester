@@ -28,7 +28,8 @@
                     }
                     <li class="list-group-item">
                         <label>
-                            <input type="checkbox" name="@field.Name" value="">
+                            <input type="checkbox" name="option" value="@field.Name"
+                                   @onchange="eventArgs => Check(field.Name, eventArgs)">
                             @field.Name
                         </label>
                     </li>
@@ -42,7 +43,7 @@
             @foreach (Match match in _matches)
             {
                 @match.Groups[0].Value
-                <MatchWord Match="match" />
+                <MatchWord Match="match"/>
             }
         </ul>
     }
@@ -50,13 +51,39 @@
 
 @code {
     private string _pattern;
-    
+
     private string _input;
 
     private MatchCollection _matches;
 
+    private readonly List<string> _enableOptions = new();
+
     private void Run()
     {
-        _matches = Regex.Matches(_input, _pattern);
+        var options = _enableOptions.Aggregate
+            (
+                RegexOptions.None,
+                (current, enableOption) => current | (RegexOptions) Enum.Parse(typeof(RegexOptions), enableOption)
+            );
+
+        _matches = Regex.Matches(_input, _pattern, options);
     }
+
+    private void Check(string checkedOption, ChangeEventArgs eventArgs)
+    {
+        if (eventArgs.Value?.ToString() == "True")
+        {
+            if (!_enableOptions.Contains(checkedOption))
+            {
+                _enableOptions.Add(checkedOption);
+            }
+            return;
+        }
+        if (_enableOptions.Contains(checkedOption))
+        {
+            _enableOptions.Remove(checkedOption);
+        }
+    }
+
 }
+    
