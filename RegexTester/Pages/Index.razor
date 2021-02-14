@@ -56,7 +56,7 @@
 
     private MatchCollection _matches;
 
-    private readonly List<string> _enableOptions = new();
+    private readonly HashSet<string> _enableOptions = new();
 
     private void Run()
     {
@@ -71,18 +71,13 @@
 
     private void Check(string checkedOption, ChangeEventArgs eventArgs)
     {
-        if (eventArgs.Value?.ToString() == "True")
+        if (eventArgs.Value != null && (bool) eventArgs.Value)
         {
-            if (!_enableOptions.Contains(checkedOption))
-            {
-                _enableOptions.Add(checkedOption);
-            }
+            _enableOptions.Add(checkedOption);
             return;
         }
-        if (_enableOptions.Contains(checkedOption))
-        {
-            _enableOptions.Remove(checkedOption);
-        }
+        //存在チェックは省略（仮に存在しなかたっとしてもfalseが返るだけなため）
+        _enableOptions.Remove(checkedOption);
     }
 
 }
