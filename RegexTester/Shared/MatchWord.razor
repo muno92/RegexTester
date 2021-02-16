@@ -1,0 +1,18 @@
+@using System.Text.RegularExpressions
+
+<ul>
+    @for (var i = 0; i < Match.Groups.Count; i++)
+    {
+        <li>
+            <dl>
+                <dt>@i.ToString()</dt>
+                <dd>@Match.Groups[i].Value</dd>
+            </dl>
+        </li>
+    }
+</ul>
+
+@code {
+    [Parameter]
+    public Match Match { get; set; }
+}

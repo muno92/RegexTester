@@ -1,7 +1,84 @@
 ﻿@page "/"
+@using System.Text.RegularExpressions
 
-<h1>Hello, world!</h1>
+<h1>Regex Tester</h1>
 
-Welcome to your new app.
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <div class="row">
+                <label for="pattern">Pattern</label>
+                <input type="text" name="pattern" id="pattern" @bind="_pattern">
+            </div>
+            <div class="row">
+                <label for="input">Input</label>
+                <textarea name="input" id="input" cols="30" rows="10" @bind="_input"></textarea>
+            </div>
+            <div class="row">
+                <button class="btn btn-primary" @onclick="Run">Run</button>
+            </div>
+        </div>
+        <div class="col-sm">
+            <ul class="list-group">
+                @foreach (var field in typeof(RegexOptions).GetFields())
+                {
+                    @if (field.Name == RegexOptions.None.ToString() || field.Name == "value__")
+                    {
+                        continue;
+                    }
+                    <li class="list-group-item">
+                        <label>
+                            <input type="checkbox" name="option" value="@field.Name"
+                                   @onchange="eventArgs => Check(field.Name, eventArgs)">
+                            @field.Name
+                        </label>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+    @if (_matches != null)
+    {
+        <ul>
+            @foreach (Match match in _matches)
+            {
+                @match.Groups[0].Value
+                <MatchWord Match="match"/>
+            }
+        </ul>
+    }
+</div>
 
-<SurveyPrompt Title="How is Blazor working for you?"/>
+@code {
+    private string _pattern;
+
+    private string _input;
+
+    private MatchCollection _matches;
+
+    private readonly HashSet<string> _enableOptions = new();
+
+    private void Run()
+    {
+        var options = _enableOptions.Aggregate
+            (
+                RegexOptions.None,
+                (current, enableOption) => current | (RegexOptions) Enum.Parse(typeof(RegexOptions), enableOption)
+            );
+
+        _matches = Regex.Matches(_input, _pattern, options);
+    }
+
+    private void Check(string checkedOption, ChangeEventArgs eventArgs)
+    {
+        if (eventArgs.Value != null && (bool) eventArgs.Value)
+        {
+            _enableOptions.Add(checkedOption);
+            return;
+        }
+        //存在チェックは省略（仮に存在しなかったとしてもfalseが返るだけなため）
+        _enableOptions.Remove(checkedOption);
+    }
+
+}
+    
