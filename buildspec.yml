@@ -11,6 +11,6 @@ phases:
     commands:
       - dotnet test RegexTesterTest
       - dotnet publish -c Release -warnaserror RegexTester
-  artifacts:
-    files:
-      - RegexTester/bin/Release/net5.0/publish/wwwroot/*
+artifacts:
+  files:
+    - RegexTester/bin/Release/net5.0/publish/wwwroot/*
