@@ -14,5 +14,4 @@ phases:
 artifacts:
   files:
     - '**/*'
-  base-directory:
-    - 'RegexTester/bin/Release/net5.0/publish/wwwroot'
+  base-directory: RegexTester/bin/Release/net5.0/publish/wwwroot
