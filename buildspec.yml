@@ -1,0 +1,13 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      dotnet: 5.0
+  pre_build:
+    commands:
+      - dotnet restore RegexTester
+  build:
+    commands:
+      - dotnet test RegexTesterTest
+      - dotnet publish -c Release -warnaserror RegexTester
