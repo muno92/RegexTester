@@ -13,4 +13,6 @@ phases:
       - dotnet publish -c Release -warnaserror RegexTester
 artifacts:
   files:
-    - RegexTester/bin/Release/net5.0/publish/wwwroot/*
+    - '**/*'
+  base-directory:
+    - 'RegexTester/bin/Release/net5.0/publish/wwwroot'
