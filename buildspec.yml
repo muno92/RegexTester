@@ -11,7 +11,6 @@ phases:
     commands:
       - dotnet test RegexTesterTest
       - dotnet publish -c Release -warnaserror RegexTester
-      - echo $CODEBUILD_SRC_DIR
 artifacts:
   files:
     - '**/*'
