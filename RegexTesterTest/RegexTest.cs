@@ -32,7 +32,7 @@ namespace RegexTesterTest
 
             var matchWords = index.FindComponents<MatchWord>();
             
-            Assert.Equal(0, matchWords.Count);
+            Assert.Equal(1, matchWords.Count);
         }
     }
 }
