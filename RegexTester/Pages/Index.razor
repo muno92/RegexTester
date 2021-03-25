@@ -22,7 +22,7 @@
             <ul class="list-group">
                 @foreach (var field in typeof(RegexOptions).GetFields())
                 {
-                    @if (field.Name == RegexOptions.None.ToString() || field.Name == "value__")
+                    @if (new[] { "value__", RegexOptions.None.ToString(), RegexOptions.Compiled.ToString()}.Contains(field.Name))
                     {
                         continue;
                     }
