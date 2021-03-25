@@ -1,11 +1,11 @@
 @using System.Text.RegularExpressions
-
+@Match.Groups[0].Value
 <ul>
-    @for (var i = 0; i < Match.Groups.Count; i++)
+    @for (var i = 1; i < Match.Groups.Count; i++)
     {
         <li>
             <dl>
-                <dt>@i.ToString()</dt>
+                <dt>Capture(@i.ToString()): </dt>
                 <dd>@Match.Groups[i].Value</dd>
             </dl>
         </li>

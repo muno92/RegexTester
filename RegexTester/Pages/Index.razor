@@ -39,11 +39,11 @@
     </div>
     @if (_matches != null)
     {
+        <h2>Matches</h2>
         <ul>
             @foreach (Match match in _matches)
             {
-                @match.Groups[0].Value
-                <MatchWord Match="match"/>
+                <li><MatchWord Match="match"/></li>
             }
         </ul>
     }
