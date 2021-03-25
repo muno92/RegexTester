@@ -18,11 +18,12 @@
                 <button class="btn btn-primary" @onclick="Run">Run</button>
             </div>
         </div>
-        <div class="col-sm">
+        <section class="col-sm">
+            <h2><a href="https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regexoptions?view=net-5.0" target="_blank">Options</a></h2>
             <ul class="list-group">
                 @foreach (var field in typeof(RegexOptions).GetFields())
                 {
-                    @if (new[] { "value__", RegexOptions.None.ToString(), RegexOptions.Compiled.ToString()}.Contains(field.Name))
+                    @if (new[] {"value__", RegexOptions.None.ToString(), RegexOptions.Compiled.ToString()}.Contains(field.Name))
                     {
                         continue;
                     }
@@ -35,7 +36,7 @@
                     </li>
                 }
             </ul>
-        </div>
+        </section>
     </div>
     @if (_matches != null)
     {
