@@ -6,4 +6,7 @@ https://n-oga.github.io/RegexTester/
 
 ## ローカル実行
 
+```bash
+cd RegexTester
 dotnet watch run --pathbase=/RegexTester
+```
