@@ -15,7 +15,7 @@ jobs:
       - name: Build
         run: dotnet build --no-restore -warnAsError RegexTester
       - name: Inspection
-        uses: muno92/resparper_inspectcode@v1.0.0
+        uses: muno92/resharper_inspectcode@v1.0.0
         with:
           solutionPath: RegexTester/RegexTester.sln
   test:
