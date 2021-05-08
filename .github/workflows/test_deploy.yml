@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '5.0.x'
-      - uses: muno92/resparper_inspectcode
+      - uses: muno92/resparper_inspectcode@v1.0.0
         with: 
           solutionPath: RegexTester/RegexTester.sln
       - name: Test
