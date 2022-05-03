@@ -19,6 +19,7 @@ jobs:
         with:
           solutionPath: ./RegexTester.sln
           exclude: RegexTester/wwwroot/**
+          ignoreIssueType: CssBrowserCompatibility
   test:
     runs-on: ubuntu-latest
     steps:
