@@ -34,6 +34,7 @@ jobs:
     needs: [code_analysis,test]
     permissions: 
       pages: write
+      id-token: read
     runs-on: ubuntu-latest
     environment:
       name: github-pages
