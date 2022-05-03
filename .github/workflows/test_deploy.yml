@@ -53,5 +53,6 @@ jobs:
         with:
           name: gh-pages
           path: artifact.tar
+          if-no-files-found: error
       - name: Deploy
         uses: actions/deploy-pages@v1.0.4
