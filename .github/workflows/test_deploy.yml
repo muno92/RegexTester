@@ -23,8 +23,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-dotnet@v1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '7.0.x'
       - name: Test
@@ -40,8 +40,8 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-dotnet@v1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '7.0.x'
       - name: Build
@@ -55,4 +55,4 @@ jobs:
           path: artifact.tar
           if-no-files-found: error
       - name: Deploy
-        uses: actions/deploy-pages@v1.0.4
+        uses: actions/deploy-pages@v1
