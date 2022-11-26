@@ -5,19 +5,18 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 
 [assembly:CLSCompliant(false)]
-namespace RegexTester
+namespace RegexTester;
+
+public static class Program
 {
-    public static class Program
+    public static async Task Main(string[] args)
     {
-        public static async Task Main(string[] args)
-        {
-            var builder = WebAssemblyHostBuilder.CreateDefault(args);
-            builder.RootComponents.Add<App>("#app");
+        var builder = WebAssemblyHostBuilder.CreateDefault(args);
+        builder.RootComponents.Add<App>("#app");
 
-            builder.Services.AddScoped(
-                _ => new HttpClient {BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)});
+        builder.Services.AddScoped(
+            _ => new HttpClient {BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)});
 
-            await builder.Build().RunAsync().ConfigureAwait(false);
-        }
+        await builder.Build().RunAsync().ConfigureAwait(false);
     }
 }
