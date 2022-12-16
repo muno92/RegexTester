@@ -48,7 +48,7 @@ jobs:
       - name: Build
         run: |
           dotnet publish -c Release RegexTester
-          tar -cvf artifact.tar -C ./RegexTester/bin/Release/net7.0/publish/wwwroot .
+          chmod -R 755 ./RegexTester/bin
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v1
         with:
