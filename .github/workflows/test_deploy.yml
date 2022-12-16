@@ -50,10 +50,8 @@ jobs:
           dotnet publish -c Release RegexTester
           tar -cvf artifact.tar -C ./RegexTester/bin/Release/net7.0/publish/wwwroot .
       - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-pages-artifact@v1
         with:
-          name: gh-pages
-          path: artifact.tar
-          if-no-files-found: error
+          path: ./RegexTester/bin/Release/net7.0/publish/wwwroot
       - name: Deploy
         uses: actions/deploy-pages@v1
