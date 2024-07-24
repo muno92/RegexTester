@@ -20,7 +20,23 @@ jobs:
           solutionPath: ./RegexTester.sln
           exclude: RegexTester/wwwroot/**
           ignoreIssueType: CssBrowserCompatibility
-          version: 2022.3.0
+  old_code_analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x'
+      - name: Restore
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --no-restore -warnAsError RegexTester
+      - name: Inspection
+        uses: muno92/resharper_inspectcode@1.11.11
+        with:
+          solutionPath: ./RegexTester.sln
+          exclude: RegexTester/wwwroot/**
+          ignoreIssueType: CssBrowserCompatibility
   test:
     runs-on: ubuntu-latest
     steps:
