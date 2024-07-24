@@ -9,6 +9,7 @@ namespace RegexTester;
 
 public static class Program
 {
+    private static int unused = 1;
     public static async Task Main(string[] args)
     {
         var builder = WebAssemblyHostBuilder.CreateDefault(args);
