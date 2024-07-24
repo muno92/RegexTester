@@ -18,6 +18,38 @@ jobs:
           solutionPath: ./RegexTester.sln
           exclude: RegexTester/wwwroot/**
           ignoreIssueType: CssBrowserCompatibility
+  code_analysis_resharper_2023:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x'
+      - name: Restore
+        run: dotnet restore
+      - name: Inspection
+        uses: muno92/resharper_inspectcode@v1
+        with:
+          solutionPath: ./RegexTester.sln
+          exclude: RegexTester/wwwroot/**
+          ignoreIssueType: CssBrowserCompatibility
+          version: 2023.3.6
+  code_analysis_resharper_eap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x'
+      - name: Restore
+        run: dotnet restore
+      - name: Inspection
+        uses: muno92/resharper_inspectcode@v1
+        with:
+          solutionPath: ./RegexTester.sln
+          exclude: RegexTester/wwwroot/**
+          ignoreIssueType: CssBrowserCompatibility
+          version: 2024.2.0-eap08
   old_code_analysis:
     runs-on: ubuntu-latest
     steps:
