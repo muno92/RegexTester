@@ -2,4 +2,4 @@ root = true
 
 [*]
 resharper_class_never_instantiated_global_highlighting=info
-resharper_not_accessed_field_local_highlighting=none
+resharper_not_accessed_field_compiler=none
