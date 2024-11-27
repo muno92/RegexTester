@@ -18,7 +18,7 @@ public class RegexTest : TestContext
 
         var matchWords = index.FindComponents<MatchWord>();
             
-        Assert.Equal(1, matchWords.Count);
+        Assert.Single(matchWords);
     }
         
     [Fact]
@@ -32,6 +32,6 @@ public class RegexTest : TestContext
 
         var matchWords = index.FindComponents<MatchWord>();
             
-        Assert.Equal(0, matchWords.Count);
+        Assert.Empty(matchWords);
     }
 }
