@@ -51,6 +51,6 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: ./RegexTester/bin/Release/net8.0/publish/wwwroot
+          path: ./RegexTester/bin/Release/net9.0/publish/wwwroot
       - name: Deploy
         uses: actions/deploy-pages@v2
