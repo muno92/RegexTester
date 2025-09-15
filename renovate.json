@@ -4,5 +4,6 @@
         "group:allNonMajor"
     ],
     "enabledManagers": ["nuget"],
+    "minimumReleaseAge": "7 days",
     "rangeStrategy": "replace"
 }
